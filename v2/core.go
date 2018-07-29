@@ -47,4 +47,35 @@ func (this *YoBit) Depth() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+
+	this.depth = response
+}
+
+func (this *YoBit) Ticker() {
+	response, err := SendRequest(url + this.first + "_" + this.second + "/ticker")
+
+	if er != nil {
+		fmt.Println(err.Error())
+	}
+	this.ticker = response
+}
+
+func (this *YoBit) Trades() {
+	response, err := SendRequest(url + this.first + "_" + this.second + "/trades")
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	this.trades = response
+}
+
+func (this *YoBit) Fee() {
+	response, err := SendRequest(url + this.first + "_" + this.second + "/fee")
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	this.fee = response
 }
